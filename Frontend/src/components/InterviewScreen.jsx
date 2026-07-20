@@ -23,7 +23,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
     setLoading(true)
 
     try {
-      const res = await fetch('/api/interview/submit', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/interview/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -66,7 +66,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
 
   const fetchReport = async () => {
     try {
-      const res = await fetch(`/api/interview/report/${interviewId}`)
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/interview/report/${interviewId}`)
       const data = await res.json()
       onComplete(data)
     } catch (err) {
