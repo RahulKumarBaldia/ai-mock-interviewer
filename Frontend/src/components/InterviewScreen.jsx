@@ -15,7 +15,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
 
   const handleSubmit = async () => {
     if (!answer.trim()) {
-      setError('Answer likhna toh padega bhai! 😄')
+      setError('You have to answer the question before submitting!')
       return
     }
 
@@ -59,7 +59,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
       }))
 
     } catch (err) {
-      setError('Backend se connect nahi ho pa raha!')
+      setError('Cannot contact the server. Please try again later.')
       setLoading(false)
     }
   }
@@ -70,7 +70,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
       const data = await res.json()
       onComplete(data)
     } catch (err) {
-      setError('Report load nahi ho pa rahi!')
+      setError('Cannot load the report. Please try again later.')
     }
   }
 
@@ -95,7 +95,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
               Exit Interview?
             </h3>
             <p className="text-sm text-[#7a7a9a] mb-6 leading-relaxed">
-              Agar ab exit kiya toh yeh interview ka progress lost ho jayega. Pakka exit karna hai?
+If you exit now, your interview progress will be lost. Are you sure you want to exit?
             </p>
             <div className="flex gap-3">
               <button
@@ -238,7 +238,7 @@ function InterviewScreen({ interviewData, setInterviewData, onComplete, onExit }
           <textarea
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
-            placeholder="Apna answer yahan likho..."
+            placeholder="Write your answer here..."
             rows={6}
             className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none transition-all duration-200"
             style={{

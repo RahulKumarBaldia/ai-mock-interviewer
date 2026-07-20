@@ -184,7 +184,7 @@ function ReportScreen({ data, interviewData, onReset }) {
             </div>
             <h3 className="font-bold text-base"
               style={{ fontFamily: "'Syne', sans-serif" }}>
-              Improve Karo
+              Improvements
             </h3>
           </div>
           <ul className="flex flex-col gap-3">
